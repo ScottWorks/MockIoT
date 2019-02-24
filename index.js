@@ -1,8 +1,9 @@
-const SensorFactory = require('./sensors');
+const { spawn } = require('child_process');
 
-const sensor = new SensorFactory('temperature');
+for (let i = 0; i <= 3; i++) {
+  const childProcess = spawn('node', ['./sensors.js', 'temperature']);
 
-setInterval(function() {
-  sensor.getReadout();
-  console.log(sensor.payload);
-}, 1000);
+  childProcess.stdout.on('data', function(data) {
+    console.log(data.toString());
+  });
+}

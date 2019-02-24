@@ -1,10 +1,13 @@
+const processArg = process.argv,
+  type = processArg[processArg.length - 1];
+
 var counter = {
   temperature: 0,
   humidity: 0,
   barometric: 0
 };
 
-module.exports = function SensorFactory(type) {
+(function SensorFactory(type) {
   var sensor;
 
   switch (type) {
@@ -24,7 +27,7 @@ module.exports = function SensorFactory(type) {
 
   sensor.payload = {
     type: type,
-    name: `${type}-${counter[type]}`,
+    name: `${type}-${process.pid}`,
     status: 'online',
     timestamp: Date.now(),
     currReadout: null
@@ -37,8 +40,11 @@ module.exports = function SensorFactory(type) {
     sensor.payload.timestamp = Date.now();
   };
 
-  return sensor;
-};
+  setInterval(function() {
+    sensor.getReadout();
+    console.log(sensor.payload);
+  }, 1000);
+})(type);
 
 function Temperature() {
   this.name = 'temperature';
