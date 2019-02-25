@@ -14,8 +14,9 @@ app.use(bodyParser.text());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post('/api/sensors', sensors.createSensors);
-app.put('/api/sensors', sensors.editSensors);
-app.put('/api/sensors', sensors.killSensors);
+// app.put('/api/sensors', sensors.editSensors);
+app.put('/api/sensors/:id', sensors.toggleSensor);
+app.delete('/api/sensors/:id', sensors.killSensor);
 
 app.listen(PORT, function() {
   console.log(`Listening on Port: ${PORT}`);
