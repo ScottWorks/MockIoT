@@ -1,0 +1,34 @@
+{
+  "sensors": [
+    {
+      "id": "sVCqGcqR2TD5",
+      "name": "Cap Hill Weather Station",
+      "longitude": -111.896742,
+      "latitude": 40.777209,
+      "altitude": 4226,
+      "group": "weather-station",
+      "type": "temperature",
+      "model": "HIH6130"
+    },
+    {
+      "id": "sVCqGcqR2TD5",
+      "name": "Cap Hill Weather Station",
+      "longitude": -111.896742,
+      "latitude": 40.777209,
+      "altitude": 4226,
+      "group": "weather-station",
+      "type": "humidity",
+      "model": "HIH6130"
+    },
+    {
+      "id": "p9nCkTaWn4eb",
+      "name": "Cap Hill Weather Station",
+      "longitude": -111.896742,
+      "latitude": 40.777209,
+      "altitude": 4226,
+      "group": "weather-station",
+      "type": "barometer",
+      "model": "MPL115A1"
+    }
+  ]
+}
