@@ -1,12 +1,14 @@
 const mqtt = require('mqtt'),
   sensorFactory = require('../lib/factory'),
-  mqttClient = mqtt.connect('mqtt://test.mosquitto.org');
+  mqttClient = mqtt.connect('mqtt://localhost:1883');
 
 const sensorInstances = [];
 
 module.exports = {
   createSensors: function(req, res) {
     const { sensors } = req.body;
+
+    if (!sensors) res.sendStatus(400);
 
     sensors.forEach(function(sensor) {
       const instance = new sensorFactory(sensor);
@@ -23,9 +25,6 @@ module.exports = {
     });
 
     res.sendStatus(200);
-  },
-  editSensor: function(req, res) {
-    //
   },
   toggleSensor: function(req, res) {
     const { id } = req.params;
