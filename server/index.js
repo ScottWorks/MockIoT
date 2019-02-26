@@ -3,7 +3,7 @@ require('dotenv').config();
 const express = require('express'),
   helmet = require('helmet'),
   bodyParser = require('body-parser'),
-  sensors = require('./controllers/sensors');
+  sensors = require('../controllers/sensors');
 
 const app = express(),
   { REST_PORT } = process.env;
